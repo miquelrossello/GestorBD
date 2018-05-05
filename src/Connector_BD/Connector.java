@@ -4,26 +4,34 @@ import java.sql.*;
 
 public class Connector {
 
-    public static Connection createConnection(String username, String password) {
-        String url = "jdbc:mysql://localhost/contactes";
-        Connection conn;
+    private Connection connection;
+    private String user;
+
+    public boolean connectar(String user, String password, String database) {
         try {
-            conn = DriverManager.getConnection(url, username, password);
-            return conn;
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + database, user, password);
+            this.user = user;
+            return true;
         } catch (SQLException e) {
-            e.printStackTrace();
+            return false;
         }
-        return null;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public String getUser() {
+        return user;
     }
 }
 
 class TestSQL {
     public static void main(String[] args) throws SQLException {
-        Connection conn = Connector.createConnection("root", "mrm1998");
-        Statement stmnt = conn.createStatement();
-        ResultSet rS = stmnt.executeQuery("SHOW DATABASES");
-        while (rS.next()) {
-            System.out.println(rS.getString(1));
+        Connector conn = new Connector();
+        if (conn.connectar("root", "mrm1998", "")) {
+            System.out.println(conn.getUser());
+            System.out.println("Connexió exitosa!");
         }
     }
 }
