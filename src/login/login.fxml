@@ -7,60 +7,18 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<<<<<<< HEAD
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.ControllerLogin">
-=======
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.ControllerLogin">
->>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" layoutY="-69.0" prefHeight="441.0" prefWidth="737.0" AnchorPane.bottomAnchor="16.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-69.0">
+            <HBox alignment="CENTER" layoutY="-69.0" prefHeight="473.0" prefWidth="712.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-69.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="422.0" prefWidth="360.0">
+                  <VBox alignment="CENTER" prefHeight="374.0" prefWidth="237.0">
                      <children>
-                        <GridPane>
-                          <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                          </columnConstraints>
-                          <rowConstraints>
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                          </rowConstraints>
-                           <children>
-                              <Label text="Base de dades" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="database" alignment="CENTER" promptText="Base de dades..." GridPane.columnIndex="1" GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="10.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                              <Label text="Servidor BD" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="server" alignment="CENTER" promptText="Servidor..." GridPane.rowIndex="1">
-                                 <GridPane.margin>
-                                    <Insets left="10.0" right="10.0" top="10.0" />
-                                 </GridPane.margin>
-                              </TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets top="70.0" />
-                           </VBox.margin>
-                        </GridPane>
                         <Label text="Usuari" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
@@ -69,11 +27,7 @@
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Label>
-<<<<<<< HEAD
-                        <TextField fx:id="user" promptText="Usuari...">
-=======
                         <TextField fx:id="userInput" promptText="Usuari...">
->>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -86,48 +40,23 @@
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Label>
-<<<<<<< HEAD
-                        <PasswordField fx:id="pass" promptText="Contrassenya...">
-=======
                         <PasswordField fx:id="passwordInput" promptText="Contrassenya...">
->>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </PasswordField>
-<<<<<<< HEAD
-                        <HBox prefHeight="100.0" prefWidth="200.0">
-                           <children>
-                              <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" mnemonicParsing="false" onAction="#loginButton" prefHeight="31.0" prefWidth="243.0" text="Login" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                              </Button>
-                              <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" mnemonicParsing="false" onAction="#registerButton" prefHeight="31.0" prefWidth="246.0" text="Register" textAlignment="CENTER">
-                                 <opaqueInsets>
-                                    <Insets />
-                                 </opaqueInsets>
-                                 <HBox.margin>
-                                    <Insets left="5.0" />
-                                 </HBox.margin>
-                              </Button>
-                           </children>
-=======
                         <Button fx:id="btnLogin" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doLogin" prefHeight="31.0" prefWidth="246.0" text="Login" textAlignment="CENTER">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
->>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
                            <VBox.margin>
-                              <Insets top="30.0" />
+                              <Insets top="40.0" />
                            </VBox.margin>
-                        </HBox>
+                        </Button>
                      </children>
                   </VBox>
                </children>
             </HBox>
-            <Label fx:id="connection" layoutX="81.0" layoutY="364.0" text="waiting for login " />
-            <Label layoutX="14.0" layoutY="364.0" text="Connection:" />
          </children>
       </AnchorPane>
    </center>
