@@ -14,7 +14,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
+<<<<<<< HEAD
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="473.0" prefWidth="712.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.ControllerLogin">
+=======
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.ControllerLogin">
+>>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -65,7 +69,11 @@
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Label>
+<<<<<<< HEAD
                         <TextField fx:id="user" promptText="Usuari...">
+=======
+                        <TextField fx:id="userInput" promptText="Usuari...">
+>>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
@@ -78,11 +86,16 @@
                               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                            </VBox.margin>
                         </Label>
+<<<<<<< HEAD
                         <PasswordField fx:id="pass" promptText="Contrassenya...">
+=======
+                        <PasswordField fx:id="passwordInput" promptText="Contrassenya...">
+>>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
                            <VBox.margin>
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </PasswordField>
+<<<<<<< HEAD
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
                               <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="-Infinity" mnemonicParsing="false" onAction="#loginButton" prefHeight="31.0" prefWidth="243.0" text="Login" textAlignment="CENTER">
@@ -99,6 +112,12 @@
                                  </HBox.margin>
                               </Button>
                            </children>
+=======
+                        <Button fx:id="btnLogin" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doLogin" prefHeight="31.0" prefWidth="246.0" text="Login" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+>>>>>>> 8f2a2b5272f47297f97359398b472962b8ebcbf8
                            <VBox.margin>
                               <Insets top="30.0" />
                            </VBox.margin>

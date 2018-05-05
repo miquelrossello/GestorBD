@@ -9,9 +9,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("login/login.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setResizable(false);
-        primaryStage.setScene(new Scene(root, 800, 500));
+        primaryStage.setTitle("Gestor de Base de Dades");
+        Scene startScene = new Scene(root);
+        primaryStage.setScene(startScene);
+        primaryStage.setResizable(true);
         primaryStage.show();
     }
 
