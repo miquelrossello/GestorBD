@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -27,6 +28,9 @@ public class ControllerLogin implements Initializable {
     private PasswordField passwordInput;
 
     @FXML
+    private Label connectionStatus;
+
+    @FXML
     public void doLogin(ActionEvent event) {
         String user = userInput.getText();
         String password = passwordInput.getText();
@@ -43,6 +47,7 @@ public class ControllerLogin implements Initializable {
                 e.printStackTrace();
             }
         } else {
+            connectionStatus.setText("FAILED");
             System.err.println("Can't connect!");
         }
     }
