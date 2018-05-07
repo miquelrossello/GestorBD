@@ -7,9 +7,9 @@ public class Connector {
     private Connection connection;
     private String user;
 
-    public boolean connectar(String user, String password, String database) {
+    public boolean connectar(String user, String password, String database, int tipo) {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/" + database, user, password);
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/" + database, user, password);
             this.user = user;
             return true;
         } catch (SQLException e) {
@@ -18,7 +18,13 @@ public class Connector {
     }
 
     public Connection getConnection() {
-        return connection;
+        try {
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/" + "", "root", "mamamia");
+            this.user = user;
+            return connection;
+        } catch (SQLException e) {
+            return connection;
+        }
     }
 
     public String getUser() {
@@ -29,7 +35,7 @@ public class Connector {
 class TestSQL {
     public static void main(String[] args) throws SQLException {
         Connector conn = new Connector();
-        if (conn.connectar("root", "iesmanacor", "")) {
+        if (conn.connectar("root", "mamamia", "", 0)) {
             System.out.println(conn.getUser());
             System.out.println("Connexió exitosa!");
         }

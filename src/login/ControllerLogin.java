@@ -67,9 +67,9 @@ public class ControllerLogin implements Initializable {
         }
     }
 
-        private boolean checkConnection(String user, String password) {
+    private boolean checkConnection(String user, String password) {
         Connector conn = new Connector();
-        return conn.connectar(user, password, "");
+        return conn.connectar(user, password, "", 0);
     }
 
     @Override
