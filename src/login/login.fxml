@@ -17,7 +17,7 @@
          <children>
             <HBox alignment="CENTER" layoutY="-69.0" prefHeight="464.0" prefWidth="337.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-69.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="374.0" prefWidth="237.0">
+                  <VBox alignment="CENTER" prefHeight="482.0" prefWidth="240.0">
                      <children>
                         <Label text="Usuari" textAlignment="CENTER">
                            <font>
@@ -45,7 +45,7 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </PasswordField>
-                        <Button fx:id="btnLogin" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doLogin" prefHeight="31.0" prefWidth="246.0" text="Login" textAlignment="CENTER">
+                        <Button fx:id="btnLogin" alignment="CENTER" contentDisplay="CENTER" defaultButton="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doLogin" prefHeight="31.0" prefWidth="246.0" text="Login" textAlignment="CENTER">
                            <opaqueInsets>
                               <Insets />
                            </opaqueInsets>
@@ -53,7 +53,18 @@
                               <Insets top="40.0" />
                            </VBox.margin>
                         </Button>
+                        <Button fx:id="btnRegister" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goRegister" prefHeight="31.0" prefWidth="246.0" text="Register" textAlignment="CENTER">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
                      </children>
+                     <HBox.margin>
+                        <Insets top="20.0" />
+                     </HBox.margin>
                   </VBox>
                </children>
             </HBox>
