@@ -29,7 +29,7 @@ public class Connector {
 class TestSQL {
     public static void main(String[] args) throws SQLException {
         Connector conn = new Connector();
-        if (conn.connectar("root", "mrm1998", "")) {
+        if (conn.connectar("root", "iesmanacor", "")) {
             System.out.println(conn.getUser());
             System.out.println("Connexió exitosa!");
         }
