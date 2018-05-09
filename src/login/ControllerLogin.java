@@ -1,7 +1,7 @@
 package login;
 
 import Connector_BD.Connector;
-import javafx.application.Application;
+import Session.Session;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,10 +14,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
 import java.util.ResourceBundle;
 
 public class ControllerLogin implements Initializable {
@@ -35,6 +33,9 @@ public class ControllerLogin implements Initializable {
         String user = userInput.getText();
         String password = passwordInput.getText();
         if (checkConnection(user, password)) {
+            Session sessionStart = Session.getInstance();
+            sessionStart.setUsername(user);
+            sessionStart.setPassword(password);
             try {
                 Parent mainApp = FXMLLoader.load(getClass().getResource("/app/app.fxml"));
                 Scene mainAppScene = new Scene(mainApp);
@@ -69,7 +70,7 @@ public class ControllerLogin implements Initializable {
 
     private boolean checkConnection(String user, String password) {
         Connector conn = new Connector();
-        return conn.connectar(user, password, "", 0);
+        return conn.connectar(user, password, "");
     }
 
     @Override
