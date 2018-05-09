@@ -34,7 +34,7 @@ public class ControllerApp implements Initializable {
         String passDB = Session.getInstance().getPassword();
         ObservableList<Database> databases = FXCollections.observableArrayList();
         try {
-            Connector conn = new Connector();
+            Connector conn = Connector.getInstance();
             conn.connectar(userDB, passDB, "");
             Statement statement = conn.getConnection().createStatement();
             ResultSet rS = statement.executeQuery("SHOW DATABASES");

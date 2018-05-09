@@ -20,8 +20,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ControllerRegister extends Application {
-    @FXML
-    String host = "localhost";
+
+    private String host = "localhost";
     @FXML
     private TextField userInput;
     @FXML
@@ -29,7 +29,7 @@ public class ControllerRegister extends Application {
     @FXML
     private Label accStatus;
 
-    Connection conn;
+    private Connection conn;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -39,7 +39,7 @@ public class ControllerRegister extends Application {
     @FXML
     public void doRegister(ActionEvent event) {
         try {
-            conn = new Connector().getConnection();
+            conn = Connector.getInstance().getConnection();
             String createUser = "CREATE USER '" + changeType(userInput) + "'@'" + host + "' IDENTIFIED BY '" + changeType(passwordInput) + "';";
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(createUser);
