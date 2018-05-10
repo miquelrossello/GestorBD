@@ -6,6 +6,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 import java.net.URL;
@@ -17,19 +19,35 @@ import java.util.ResourceBundle;
 public class ControllerApp implements Initializable {
 
     @FXML
-    private ListView<String> databasesList;
+    private ListView<Button> databasesList;
+    @FXML
+    private Label testLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setTableList();
-        databasesList.setItems(getDatabases());
     }
 
     private void setTableList() {
-        ObservableList<String> dbList = databasesList.getItems();
+        ObservableList<String> dbList = getDatabases();
+        ObservableList<Button> buttonList = FXCollections.observableArrayList();
         for (int x = 0; x < dbList.size(); x++) {
-
+            buttonList.add(new Button(dbList.get(x)));
+            setListStyleButton(buttonList.get(x));
         }
+        databasesList.setItems(buttonList);
+    }
+
+    private void setListStyleButton(Button button) {
+        button.getStylesheets().add("/css/main.css");
+        button.getStyleClass().add("button");
+        button.setOnAction(event -> {
+            displayInfoDatabase(button.getText());
+        });
+    }
+
+    private void displayInfoDatabase(String databaseName) {
+        testLabel.setText("BD sel·leccionada: " + databaseName);
     }
 
     private ObservableList<String> getDatabases() {
