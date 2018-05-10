@@ -52,7 +52,7 @@ public class ControllerRegister extends Application {
 
     public void back(ActionEvent event){
         try {
-            Parent register = FXMLLoader.load(getClass().getResource("/login/login.fxml"));
+            Parent register = FXMLLoader.load(getClass().getResource("../app/app.fxml"));
             Scene registerScene = new Scene(register);
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             window.setScene(registerScene);

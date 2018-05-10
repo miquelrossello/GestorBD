@@ -53,14 +53,6 @@
                               <Insets top="40.0" />
                            </VBox.margin>
                         </Button>
-                        <Button fx:id="btnRegister" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#goRegister" prefHeight="31.0" prefWidth="246.0" text="Register" textAlignment="CENTER">
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                           <VBox.margin>
-                              <Insets top="10.0" />
-                           </VBox.margin>
-                        </Button>
                      </children>
                      <HBox.margin>
                         <Insets top="20.0" />

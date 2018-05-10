@@ -53,21 +53,6 @@ public class ControllerLogin implements Initializable {
         }
     }
 
-    @FXML
-    public void goRegister(ActionEvent event) {
-        try {
-            Parent register = FXMLLoader.load(getClass().getResource("/register/register.fxml"));
-            Scene registerScene = new Scene(register);
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(registerScene);
-            window.setResizable(false);
-            window.setTitle("Register");
-            window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
     private boolean checkConnection(String user, String password) {
         Connector conn = Connector.getInstance();
         return conn.connectar(user, password, "");

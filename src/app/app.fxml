@@ -11,9 +11,9 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ControllerApp">
   <children>
-    <MenuBar VBox.vgrow="NEVER">
+    <MenuBar fx:id="myMenuBar" VBox.vgrow="NEVER">
       <menus>
-        <Menu mnemonicParsing="false" text="File">
+        <Menu mnemonicParsing="false" text="Archivo">
           <items>
             <MenuItem mnemonicParsing="false" text="New" />
             <MenuItem mnemonicParsing="false" text="Open…" />
@@ -29,7 +29,7 @@
             <MenuItem mnemonicParsing="false" text="Quit" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
+        <Menu mnemonicParsing="false" text="Editar">
           <items>
             <MenuItem mnemonicParsing="false" text="Undo" />
             <MenuItem mnemonicParsing="false" text="Redo" />
@@ -43,7 +43,13 @@
             <MenuItem mnemonicParsing="false" text="Unselect All" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Help">
+            <Menu mnemonicParsing="false" text="Usuario">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#menuRegister" text="Crear usuario" />
+                  <MenuItem mnemonicParsing="false" onAction="#menuLogout" text="Logout" />
+              </items>
+            </Menu>
+        <Menu mnemonicParsing="false" text="Ayuda">
           <items>
             <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
           </items>
