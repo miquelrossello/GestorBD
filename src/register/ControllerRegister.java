@@ -40,7 +40,7 @@ public class ControllerRegister extends Application {
     public void doRegister(ActionEvent event) {
         try {
             conn = Connector.getInstance().getConnection();
-            String createUser = "CREATE USER '" + changeType(userInput) + "'@'" + host + "' IDENTIFIED BY '" + changeType(passwordInput) + "';";
+            String createUser = "CREATE USER '" + userInput.getText() + "'@'" + host + "' IDENTIFIED BY '" + passwordInput.getText() + "';";
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(createUser);
             accStatus.setText("La compta d'usuari s'ha creat!");
@@ -62,9 +62,5 @@ public class ControllerRegister extends Application {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
-
-    private String changeType(TextField text) {
-        return (String) text.getText();
     }
 }
