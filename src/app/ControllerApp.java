@@ -2,6 +2,7 @@ package app;
 
 import Connector_BD.Connector;
 import Session.Session;
+import com.mysql.jdbc.Connection;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,6 +28,8 @@ public class ControllerApp implements Initializable {
     @FXML
     private ListView<String> databasesList;
 
+    Connector conn;
+
     @FXML
     MenuBar myMenuBar;
 
@@ -48,7 +51,7 @@ public class ControllerApp implements Initializable {
         String passDB = Session.getInstance().getPassword();
         ObservableList<String> databases = FXCollections.observableArrayList();
         try {
-            Connector conn = Connector.getInstance();
+            conn = Connector.getInstance();
             conn.connectar(userDB, passDB, "");
             Statement statement = conn.getConnection().createStatement();
             ResultSet rS = statement.executeQuery("SHOW DATABASES");
@@ -62,7 +65,7 @@ public class ControllerApp implements Initializable {
     }
 
     @FXML
-    public void menuRegister(ActionEvent event) {
+    public void menuRegister() {
         try {
             Parent register = FXMLLoader.load(getClass().getResource("../register/register.fxml"));
             Scene registerScene = new Scene(register);
@@ -75,9 +78,11 @@ public class ControllerApp implements Initializable {
             e.printStackTrace();
         }
     }
+
     @FXML
-    public void menuLogout(ActionEvent event) {
+    public void menuLogout() {
         try {
+            conn.close();
             Parent register = FXMLLoader.load(getClass().getResource("../login/login.fxml"));
             Scene registerScene = new Scene(register);
             Stage window = (Stage) myMenuBar.getScene().getWindow();
@@ -86,6 +91,8 @@ public class ControllerApp implements Initializable {
             window.setTitle("Login");
             window.show();
         } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
             e.printStackTrace();
         }
     }

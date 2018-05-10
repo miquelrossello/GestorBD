@@ -30,7 +30,12 @@ public class Connector {
     public Connection getConnection() {
         return connection;
     }
+
+    public void close() throws SQLException {
+        connection.close();
+    }
 }
+
 
 class TestSQL {
     public static void main(String[] args) throws SQLException {
