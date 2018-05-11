@@ -6,9 +6,11 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.ControllerApp">
   <children>
@@ -64,7 +66,11 @@
                <center>
                 <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                      <children>
-                        <Label fx:id="testLabel" layoutX="124.0" layoutY="59.0" text="Label" />
+                        <TableView fx:id="tablesView" layoutX="300.0" layoutY="266.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="50.0" />
+                        <Label fx:id="titleLabel" layoutX="50.0" layoutY="14.0" text="Label">
+                           <font>
+                              <Font size="26.0" />
+                           </font></Label>
                      </children></AnchorPane>
                </center>
             </BorderPane>

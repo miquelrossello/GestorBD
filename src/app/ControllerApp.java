@@ -21,11 +21,12 @@ public class ControllerApp implements Initializable {
     @FXML
     private ListView<Button> databasesList;
     @FXML
-    private Label testLabel;
+    private Label titleLabel;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setTableList();
+        titleLabel.setText("Cap BD sel·leccionada");
     }
 
     private void setTableList() {
@@ -47,7 +48,7 @@ public class ControllerApp implements Initializable {
     }
 
     private void displayInfoDatabase(String databaseName) {
-        testLabel.setText("BD sel·leccionada: " + databaseName);
+        titleLabel.setText("BD sel·leccionada: " + databaseName);
     }
 
     private ObservableList<String> getDatabases() {
