@@ -2,33 +2,36 @@ package app;
 
 import Connector_BD.Connector;
 import Session.Session;
-import com.mysql.jdbc.Connection;
+import app.Databases.Database;
+import app.Databases.Table;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuBar;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ResourceBundle;
 
 public class ControllerApp implements Initializable {
 
     @FXML
-    private ListView<String> databasesList;
+    private ListView<Button> databasesList;
+    @FXML
+    private Label titleLabel;
+    @FXML
+    private TableView<Table> tablesView;
 
-    Connector conn;
+    ObservableList<Table> tables = FXCollections.observableArrayList();
+
+    Connection conn;
 
     @FXML
     MenuBar myMenuBar;
@@ -36,27 +39,45 @@ public class ControllerApp implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         setTableList();
-        databasesList.setItems(getDatabases());
+        titleLabel.setText("Cap BD sel·leccionada");
+    }
+
+    private void setDatabaseTable(Database database) {
+        tables = database.getTableList();
+        TableColumn columnTables = new TableColumn("Tables");
+        columnTables.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tablesView.getColumns().clear();
+        tablesView.setItems(tables);
+        tablesView.getColumns().add(columnTables);
     }
 
     private void setTableList() {
-        ObservableList<String> dbList = databasesList.getItems();
+        ObservableList<Database> dbList = getDatabases();
+        ObservableList<Button> buttonList = FXCollections.observableArrayList();
         for (int x = 0; x < dbList.size(); x++) {
-
+            Button btn = new Button(dbList.get(x).getName());
+            int index = x;
+            buttonList.add(btn);
+            btn.setOnAction(event -> {
+                displayInfoDatabase(btn.getText());
+                setDatabaseTable(dbList.get(index));
+            });
         }
+        databasesList.setItems(buttonList);
     }
 
-    private ObservableList<String> getDatabases() {
-        String userDB = Session.getInstance().getUsername();
-        String passDB = Session.getInstance().getPassword();
-        ObservableList<String> databases = FXCollections.observableArrayList();
+    private void displayInfoDatabase(String databaseName) {
+        titleLabel.setText("BD sel·leccionada: " + databaseName);
+    }
+
+    private ObservableList<Database> getDatabases() {
+        ObservableList<Database> databases = FXCollections.observableArrayList();
         try {
-            conn = Connector.getInstance();
-            conn.connectar(userDB, passDB, "");
-            Statement statement = conn.getConnection().createStatement();
+            conn = new Connector(Session.getInstance().getUsername(), Session.getInstance().getPassword(), "").getConnection();
+            Statement statement = conn.createStatement();
             ResultSet rS = statement.executeQuery("SHOW DATABASES");
             while (rS.next()) {
-                databases.add(new Database(rS.getString(1)).getName());
+                databases.add(new Database(rS.getString(1)));
             }
         } catch (SQLException e) {
             e.printStackTrace();

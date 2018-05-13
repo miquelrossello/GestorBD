@@ -1,6 +1,7 @@
 package register;
 
 import Connector_BD.Connector;
+import Session.Session;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -39,7 +40,7 @@ public class ControllerRegister extends Application {
     @FXML
     public void doRegister(ActionEvent event) {
         try {
-            conn = Connector.getInstance().getConnection();
+            conn = new Connector(Session.getInstance().getUsername(), Session.getInstance().getPassword(), "").getConnection();
             String createUser = "CREATE USER '" + userInput.getText() + "'@'" + host + "' IDENTIFIED BY '" + passwordInput.getText() + "';";
             Statement stmt = conn.createStatement();
             stmt.executeUpdate(createUser);

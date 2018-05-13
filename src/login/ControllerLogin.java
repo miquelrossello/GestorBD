@@ -28,6 +28,8 @@ public class ControllerLogin implements Initializable {
     @FXML
     private Label connectionStatus;
 
+    Connector conn;
+
     @FXML
     public void doLogin(ActionEvent event) {
         String user = userInput.getText();
@@ -36,6 +38,7 @@ public class ControllerLogin implements Initializable {
             Session sessionStart = Session.getInstance();
             sessionStart.setUsername(user);
             sessionStart.setPassword(password);
+            sessionStart.setConnectorDB(conn);
             try {
                 Parent mainApp = FXMLLoader.load(getClass().getResource("/app/app.fxml"));
                 Scene mainAppScene = new Scene(mainApp);
@@ -54,8 +57,8 @@ public class ControllerLogin implements Initializable {
     }
 
     private boolean checkConnection(String user, String password) {
-        Connector conn = Connector.getInstance();
-        return conn.connectar(user, password, "");
+        conn = new Connector(user, password, "");
+        return conn.connectar();
     }
 
     @Override

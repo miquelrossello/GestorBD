@@ -1,17 +1,21 @@
 package Session;
 
-import java.sql.Connection;
+import Connector_BD.Connector;
 
 public class Session {
 
     private static Session session;
     private String username;
     private String password;
-    private Connection connectionDB;
+    private Connector connectorDB;
 
     private Session() {
 
     }
+
+    public Connector getConnectorDB() { return connectorDB; }
+
+    public void setConnectorDB(Connector conn) { this.connectorDB = conn;}
 
     public void setUsername(String username) {
         this.username = username;
