@@ -2,6 +2,7 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXSpinner?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -17,14 +18,14 @@
          <children>
             <HBox alignment="CENTER" layoutY="-69.0" prefHeight="464.0" prefWidth="337.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-69.0">
                <children>
-                  <VBox alignment="CENTER" prefHeight="482.0" prefWidth="240.0">
+                  <VBox alignment="CENTER" prefHeight="345.0" prefWidth="240.0">
                      <children>
                         <Label text="Usuari" textAlignment="CENTER">
                            <font>
                               <Font size="20.0" />
                            </font>
                            <VBox.margin>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="20.0" top="50.0" />
                            </VBox.margin>
                         </Label>
                         <JFXTextField fx:id="userInput" promptText="Usuari..." />
@@ -37,10 +38,15 @@
                            </VBox.margin>
                         </Label>
                         <JFXPasswordField fx:id="passwordInput" promptText="Contrassenya..." />
-                        <JFXButton fx:id="btnLogin" buttonType="RAISED" maxWidth="1.7976931348623157E308" onAction="#doLogin" prefHeight="38.0" prefWidth="128.0" ripplerFill="#7c3a3a" style="-jfx-button-type: FLAT; -fx-background-color: #5b36a0; -fx-text-fill: white;" text="Login">
+                        <JFXButton fx:id="btnLogin" buttonType="RAISED" defaultButton="true" maxWidth="1.7976931348623157E308" onAction="#doLogin" prefHeight="38.0" prefWidth="128.0" ripplerFill="#7c3a3a" style="-jfx-button-type: FLAT; -fx-background-color: #5b36a0; -fx-text-fill: white;" text="Login">
                            <VBox.margin>
                               <Insets top="40.0" />
                            </VBox.margin></JFXButton>
+                        <JFXSpinner fx:id="loginSpinner" prefHeight="24.0" prefWidth="198.0" visible="false">
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </JFXSpinner>
                      </children>
                      <HBox.margin>
                         <Insets top="20.0" />

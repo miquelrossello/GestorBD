@@ -2,6 +2,7 @@ package login;
 
 import Connector_BD.Connector;
 import Session.Session;
+import com.jfoenix.controls.JFXSpinner;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -28,10 +29,14 @@ public class ControllerLogin implements Initializable {
     @FXML
     private Label connectionStatus;
 
+    @FXML
+    private JFXSpinner loginSpinner;
+
     Connector conn;
 
     @FXML
     public void doLogin(ActionEvent event) {
+        loginSpinner.setVisible(true);
         String user = userInput.getText();
         String password = passwordInput.getText();
         if (checkConnection(user, password)) {
@@ -54,6 +59,7 @@ public class ControllerLogin implements Initializable {
             connectionStatus.setText("FAILED");
             System.err.println("Can't connect!");
         }
+        loginSpinner.setVisible(false);
     }
 
     private boolean checkConnection(String user, String password) {
