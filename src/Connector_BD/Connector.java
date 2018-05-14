@@ -18,7 +18,7 @@ public class Connector {
 
     public boolean connectar() {
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/" + database, user, password);
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/" + database + "?useSSL=false", user, password);
             return true;
         } catch (SQLException e) {
             return false;
@@ -54,7 +54,7 @@ public class Connector {
 
 class TestSQL {
     public static void main(String[] args) {
-        Connector conn = new Connector("root", "mrm1998", "");
+        Connector conn = new Connector("root", "iesmanacor", "");
         conn.connectar();
         conn.changeDatabase("contactes");
         try {

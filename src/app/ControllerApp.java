@@ -111,9 +111,7 @@ public class ControllerApp implements Initializable {
             window.setResizable(false);
             window.setTitle("Login");
             window.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SQLException e) {
+        } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }
