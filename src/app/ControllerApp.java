@@ -58,6 +58,7 @@ public class ControllerApp implements Initializable {
             Button btn = new Button(dbList.get(x).getName());
             int index = x;
             buttonList.add(btn);
+            btn.setMaxWidth(Double.MAX_VALUE);
             btn.setOnAction(event -> {
                 displayInfoDatabase(btn.getText());
                 setDatabaseTable(dbList.get(index));
